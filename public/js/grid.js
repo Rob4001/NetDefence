@@ -42,7 +42,7 @@ function onDataReceived(data) {
 		.enter()
 		.append("rect")
 		.style("stroke", "gray")
-		.style("fill", calcColour(d))
+		.style("fill", function(d){return calcColour(d);})
 		.attr("width", 20)
 		.attr("height", 20)
 		.attr("x", function (d){return (d.x*20)+5;})
@@ -54,7 +54,7 @@ function onDataReceived(data) {
 			d3.select(this).style("fill", "aliceblue");
 		})
 		.on("mouseout", function () {
-			d3.select(this).style("fill", calcColour(d));
+			d3.select(this).style("fill", function(d){return calcColour(d);});
 		});
 	
 
