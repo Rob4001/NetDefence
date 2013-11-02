@@ -20,7 +20,7 @@ connection.query('SELECT `CHANNEL` FROM `aps`',
             console.log(results)
             var chans = new Array();
             for(var i = 1; i < results.length; i++){
-            chans[results[i].channel] += 1;
+            chans[results[i].CHANNEL] += 1;
             
             }
             console.log(chans);
