@@ -36,7 +36,7 @@ function onDataReceived(data) {
 		.enter()
 		.append("rect")
 		.attr("x", i % 5)
-		.attr("y", (i - (i % 5)) / 5))
+		.attr("y", (i - (i % 5)) / 5)
 		.on("click", function (d) {
 			d3.select("#value").text(d[1])
 		})
