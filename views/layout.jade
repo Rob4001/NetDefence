@@ -1,7 +1,41 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  include inc/header
   body
-    block content
+    nav(role="navigation").navbar.navbar-default
+      div.navbar-header
+        button(type="button" data-toggle="collapse" data-target="#navbar-collapse-1").navbar-toggle
+          span.sr-only Toggle Navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a(href="/").navbar-brand NetDefense
+      div.collapse.navbar-collapse#navbar-collapse-1
+
+        | <ul class="nav navbar-nav">
+        - var obj = { '/home':'Home', '/about':'About'}
+        each val, key in obj
+          if id == key
+            li.active
+              a(href='#{key}') #{val}                      
+          else            
+            li
+              a(href='#{key}') #{val}
+        | </ul>
+        ul.nav.navbar-nav.pull-right
+          if(!user)
+            li
+              a(href = '/auth/github') Login
+                img(src = '/img/github.ico' height='16' width='16')     
+          else
+            li
+              a(href = '/logout') Log Out
+  
+  
+    div.container
+      div.row
+        div.col-md-12
+           block content
+    
+    include inc/scripts
