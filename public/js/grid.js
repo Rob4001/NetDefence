@@ -42,7 +42,7 @@ function onDataReceived(data) {
 		.enter()
 		.append("rect")
 		.style("stroke", "gray")
-		.style("fill", "white")
+		.style("fill", calcColour(d))
 		.attr("width", 20)
 		.attr("height", 20)
 		.attr("x", function (d){return (d.x*20)+5;})
@@ -54,8 +54,17 @@ function onDataReceived(data) {
 			d3.select(this).style("fill", "aliceblue");
 		})
 		.on("mouseout", function () {
-			d3.select(this).style("fill", "white");
+			d3.select(this).style("fill", calcColour(d));
 		});
 	
 
+};
+
+function calcColour(d){
+val colour = d3.rgb(240,248,255);
+if(d.length == 0){
+return "white";
+}else{
+return colour.darken(d.length).toString();
+}
 };
