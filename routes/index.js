@@ -20,8 +20,12 @@ connection.query('SELECT `CHANNEL` FROM `aps`',
             console.log(results)
             var chans = new Array();
             for(var i = 1; i < results.length; i++){
-            chans[results[i].CHANNEL] += 1;
+            if(chans[results[i].CHANNEL]){
+            chans[results[i].CHANNEL]++;
+            }else{
             
+            chans[results[i].CHANNEL] = 1;
+            }
             }
             console.log(chans);
             var data = [];
@@ -34,7 +38,7 @@ connection.query('SELECT `CHANNEL` FROM `aps`',
                         });
                 }
                 console.log(data)
-            res.render('index', { title: 'NetDefense' ,user: req.user, data: JSON.stringify(data)});
+            res.render('index', { title: 'NetDefense' ,user: req.user, data: data});
         }
     );
 
