@@ -13,7 +13,7 @@ var lo = "";
 var dataurl = "http://api.geeksoc-hackathon.tk/data/map.php"
 
 	grid.setup = function (s) {
-	svg = var svg = d3.select("#" + s).append("svg")
+	svg = d3.select("#" + s).append("svg")
 		.attr("width", screenSize)
 		.attr("height", screenSize);
 	)
