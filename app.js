@@ -59,7 +59,6 @@ passport.use(new GitHubStrategy({
 ));
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 
 // Auth Routes
 
