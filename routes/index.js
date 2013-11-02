@@ -3,7 +3,7 @@
  * GET home page.
  */
  var mysql = require('mysql')
- config = require('./config.js');
+ config = require('../config.js');
  
  var connection = mysql.createConnection({
         host     : 'localhost',
