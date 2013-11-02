@@ -10,13 +10,13 @@ var grid = grid || {};
 var la = "";
 var lo = "";
 
-var dataurl = "http://api.geeksoc-hackathon.tk/data/map.php"
+var dataurl = "http://api.geeksoc-hackathon.tk/data/map.php";
 
-	grid.setup = function (s) {
+grid.setup = function (s) {
 	svg = d3.select("#" + s).append("svg")
 		.attr("width", screenSize)
 		.attr("height", screenSize);
-	)
+
 };
 
 grid.updateGrid = function (lat, lon) {
