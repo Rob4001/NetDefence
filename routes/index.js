@@ -23,7 +23,7 @@ connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body,
             
             }
             var data = [];
-            for(index in chans)
+            for(var index in chans)
                 {
                 
                         data.push({
