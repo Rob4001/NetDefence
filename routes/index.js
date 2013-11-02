@@ -22,11 +22,11 @@ connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body,
             chans[results[i].channel] = chans[results[i].channel] + 1;
             
             }
-            for(key,val in chans)
+            for(index in chans)
                 {
                         data.push({
                                 label: key,
-                                value: val
+                                value: chans[index]
                         });
                 }
             res.render('index', { title: 'NetDefense' ,user: req.user, data: data});
