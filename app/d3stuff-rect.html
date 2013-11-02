@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="viz"></div>
+	<div id="value"></div>
+	
+    <script type="text/javascript">
+		//define screen size
+		var screenSizeX = 320;
+		var screenSizeY = 320;
+		
+		//define rect size
+		var rectX = 20;
+		var rectY = 20;
+		
+		//creates array of values used to populate and place rectangles along x axis
+		var rectGridX = new Array();
+		var ii = 0;
+		for (var i = (rectX/2);i < (screenSizeX-15); i += rectX)
+		{ 
+			rectGridX[ii] = i;
+			ii++;
+		}
+		console.info(rectGridX.toString());
+		
+		//create arry of values to place 
+		var rectGridY = new Array();
+		var ii = 0;
+		for (var i = rectY;i < (screenSizeY-15); i += rectY)
+		{ 
+			rectGridY[ii] = i;
+			ii++;
+		}
+		console.info(rectGridY.toString());
+		//var rectGridX = [10,30,50,70]
+		var svgContainer = d3.select("#viz").append("svg")
+											.attr("width", screenSizeX)
+											.attr("height", screenSizeX);
+
+		var rectangle = svgContainer.selectAll("rect")
+								  .data(rectGridX)
+								  .enter()
+								  .append("rect")
+								  .on("click", function (d){d3.select("#value").text("aertty")});
+
+		var rectAttributes = rectangle
+									.style("stroke", "gray")
+									.style("fill", "white")
+									.attr("width", 20)
+									.attr("height", 20)
+									.attr("x", function (d) { return d; })
+									.attr("y", function (d) { return d; })
+									.on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+									.on("mouseout", function(){d3.select(this).style("fill", "white");});
+    </script>
+</body>
+</html>
