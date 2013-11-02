@@ -27,7 +27,7 @@ connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body,
                 {
                 
                         data.push({
-                                label: key,
+                                label: index,
                                 value: chans[index]
                         });
                 }
