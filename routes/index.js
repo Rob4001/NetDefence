@@ -38,7 +38,7 @@ connection.query('SELECT `CHANNEL` FROM `aps`',
                         });
                 }
                 console.log(data)
-            res.render('index', { title: 'NetDefense' ,user: req.user, data: data});
+            res.render('index', { title: 'NetDefense' ,user: req.user, data: JSON.stringify(data)});
         }
     );
 

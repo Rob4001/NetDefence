@@ -9,5 +9,5 @@ block content
   script.
     Morris.dohnut({
     element: 'chart',
-    data: #{data}
+    data: jQuery.parseJSON(#{data})
     });
