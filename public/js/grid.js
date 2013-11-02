@@ -32,7 +32,7 @@ function onDataReceived(data) {
 	console.log(data);
 	for (var i = 0; i < data.length; i++) {
 		svg.selectAll("rect")
-		.data(data[i])
+		.data(data)
 		.enter()
 		.append("rect")
 		.style("stroke", "gray")
