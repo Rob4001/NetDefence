@@ -61,10 +61,10 @@ function onDataReceived(data) {
 };
 
 function calcColour(d){
-var colour = d3.rgb(240,248,255);
+
 if(d.length == 0){
 return "white";
 }else{
-return colour.darken(d.length).toString();
+return d3.rgb(240,248,255).darken(d.length).toString();
 }
 };
