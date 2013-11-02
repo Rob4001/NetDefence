@@ -7,14 +7,14 @@ block content
   div#gridCont
     
   
-  script(src='/js/grid.js')
+
   script.
     grid.setup('grid')
     if (navigator.geolocation)
     {
        navigator.geolocation.getCurrentPosition(function(position){
        grid.updateGrid(position.coords.latitude,position.coords.longitude)
-       });
+       );
     }
     else{
        console.log("Geolocation is not supported by this browser.");
