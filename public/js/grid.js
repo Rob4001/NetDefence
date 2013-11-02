@@ -48,7 +48,7 @@ function onDataReceived(data) {
 		.attr("x", function (d){(d.x*10)+5})
 		.attr("y", function (d){(d.y*10)+5})
 		.on("click", function (d) {
-			d3.select("#value").text(d)
+			d3.select("#value").text(JSON.stringify(d))
 		})
 		.on("mouseover", function () {
 			d3.select(this).style("fill", "aliceblue");
