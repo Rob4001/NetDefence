@@ -36,7 +36,7 @@ function onDataReceived(data) {
        data[x+(y*5)].y = y;
     }
     }
-    console.log(JSON.stringify(data));
+    console.log(data);
 		svg.selectAll("rect")
 		.data(data)
 		.enter()
