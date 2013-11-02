@@ -10,7 +10,7 @@
     "jade": "*",
     "request": "*",
     "passport": "*",
-    "passport-github": "*"
+    "passport-github": "*",
     "mysql": "*"
   }
 }
