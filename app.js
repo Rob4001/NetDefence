@@ -43,7 +43,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     clientID: config.githubID,
     clientSecret: config.githubSecret,
-    callbackURL: config.githuibCallback
+    callbackURL: config.githubCallback
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
