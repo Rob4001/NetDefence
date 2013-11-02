@@ -45,8 +45,8 @@ function onDataReceived(data) {
 		.style("fill", "white")
 		.attr("width", 20)
 		.attr("height", 20)
-		.attr("x", function (d){return (d.x*10)+5;})
-		.attr("y", function (d){return (d.y*10)+5;})
+		.attr("x", function (d){return (d.x*20)+5;})
+		.attr("y", function (d){return (d.y*20)+5;})
 		.on("click", function (d) {
 			d3.select("#value").text(JSON.stringify(d))
 		})
