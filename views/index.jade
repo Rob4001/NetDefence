@@ -4,31 +4,12 @@ block content
 
   h1= title
   p Welcome to #{title}
-  div.chart
-    svg.pie
-    
-  script(type="text/javascript" src="js/d3.ay-pie-chart.js")
+  div(style="height: 250px;")#chart
+  
+  - var str = JSON.stringify(data);
+  
   script.
-    var get_random_data        = function(limit)
-        {
-                var data        = [];
-                        
-                var getRandomInt        = function(min, max)
-                {
-                  return Math.floor(Math.random() * (max - min + 1)) + min;
-                }
-                
-                for(var i = 1; i < limit; i++)
-                {
-                        data.push({
-                                index: i,
-                                name: 'test',
-                                value: getRandomInt(0,1000)
-                        });
-                }
-                
-                return data;
-        }
-    $(function(){
-       ay.pie_chart('pie', get_random_data(30), {percentage: false});
+    Morris.dohnut({
+    element: 'chart',
+    data: #{str}
     });

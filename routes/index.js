@@ -22,15 +22,14 @@ connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body,
             chans[results[i].channel] = chans[results[i].channel] + 1;
             
             }
-            for(var i = 1; i < chans.length; i++)
+            for(key,val in chans)
                 {
                         data.push({
-                                index: i,
-                                name: 'test',
-                                value: getRandomInt(0,1000)
+                                label: key,
+                                value: val
                         });
                 }
-            res.render('index', { title: 'NetDefense' ,user: req.user, data:results});
+            res.render('index', { title: 'NetDefense' ,user: req.user, data: data});
         }
     );
 
