@@ -13,8 +13,8 @@ block content
     if (navigator.geolocation)
     {
        navigator.geolocation.getCurrentPosition(function(position){
-       grid.updateGrid(position.coords.latitude,position.coords.longitude)
-       );
+       grid.updateGrid(position.coords.latitude,position.coords.longitude);
+       });
     }
     else{
        console.log("Geolocation is not supported by this browser.");
