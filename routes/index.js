@@ -10,12 +10,14 @@
         user     : config.mysqlUser,
         password : config.mysqlPass
     });
-
+connection.query('USE loaded', function (err) {
+        if (err) throw err;
+});
 exports.index = function(req, res){
-connection.query('SELECT `CHANNEL` FROM `loaded.aps` ;', req.body, 
+connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body, 
         function (err, results) {
             if (err) throw err;
-            var chans = new array();
+            var chans = new Array();
             for(var i = 1; i < results.length; i++){
             chans[results[i].channel] = chans[results[i].channel] + 1;
             
