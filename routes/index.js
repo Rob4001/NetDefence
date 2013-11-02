@@ -22,8 +22,10 @@ connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body,
             chans[results[i].channel] = chans[results[i].channel] + 1;
             
             }
+            var data = [];
             for(index in chans)
                 {
+                
                         data.push({
                                 label: key,
                                 value: chans[index]
