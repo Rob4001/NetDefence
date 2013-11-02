@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS `networks` (
+  `ID` int(11) NOT NULL,
+  `HORIZONTAL_ACCURACY` double NOT NULL,
+  `RSSI` varchar(8) NOT NULL,
+  `SSID` varchar(36) NOT NULL,
+  `CHANNEL` int(6) NOT NULL,
+  `SECURITY` varchar(20) NOT NULL,
+  `LATITUDE` double NOT NULL,
+  `LONGITUDE` double NOT NULL,
+  `CREATED_AT` date NOT NULL,
+  `BSSID` varchar(20) NOT NULL,
+  `NUM_SSID` int(11) NOT NULL,
+  `QUALITY` int(3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
