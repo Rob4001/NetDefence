@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'NetDefense' ,user:req.user});
+  res.render('index', { title: 'NetDefense' ,user: req.user});
 };
