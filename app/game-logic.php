@@ -54,7 +54,7 @@ function calcAvailRes()
 	static $availRes = $baseRes - $APDebuffs;
 }
 
-function nodeAttack()
+function nodeAttack($sT,$sS)
 {
 	//determines and provides value of resource to attack a node
 	
@@ -74,8 +74,10 @@ function attackNode($nodeBSS)
 	
 	if ($nodeOwnerCheck == $nodeBSS)
 	{
-		$s = ($con,"SELECT "security" FROM ap_table WHERE bssid = $nodeBSS")
-		nodeAttack($s);
+		$secT = ($con,"SELECT "security" FROM ap_table WHERE bssid = $nodeBSS");
+		$secState = ($con,"SELECT "secured" FROM ap_table WHERE bssid = $nodeBSS");
+		
+		nodeAttack($secT,$secState);
 	}
 	else
 	{
