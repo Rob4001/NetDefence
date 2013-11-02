@@ -35,6 +35,10 @@ function onDataReceived(data) {
 		.data(data[i])
 		.enter()
 		.append("rect")
+		.style("stroke", "gray")
+		.style("fill", "white")
+		.attr("width", 20)
+		.attr("height", 20)
 		.attr("x", i % 5)
 		.attr("y", (i - (i % 5)) / 5)
 		.on("click", function (d) {
