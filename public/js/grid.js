@@ -65,6 +65,6 @@ function calcColour(d){
 if(d.length == 0){
 return "white";
 }else{
-return d3.rgb(240,248,255).darken(d.length).toString();
+return d3.rgb(240,248,255).darker(d.length).toString();
 }
 };
