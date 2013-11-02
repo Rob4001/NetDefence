@@ -12,7 +12,7 @@
     });
 
 exports.index = function(req, res){
-connection.query('SELECT `CHANNEL` FROM `aps` ;', req.body, 
+connection.query('SELECT `CHANNEL` FROM `loaded.aps` ;', req.body, 
         function (err, results) {
             if (err) throw err;
             var chans = new array();
