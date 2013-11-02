@@ -1,5 +1,14 @@
 extends layout
 
 block content
+
   h1= title
   p Welcome to #{title}
+  div.chart
+    svg.pie
+    
+  script(type="text/javascript" src="js/d3.ay-pie-chart.js")
+  script.
+    $(function(){
+       ay.pie_chart('pie-a', get_random_data(5), {percentage: false});
+    });
