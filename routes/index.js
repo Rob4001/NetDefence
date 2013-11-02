@@ -17,7 +17,7 @@ exports.index = function(req, res){
 connection.query('SELECT `CHANNEL` FROM `aps`',
         function (err, results) {
             if (err) throw err;
-            console.log(restults)
+            console.log(results)
             var chans = new Array();
             for(var i = 1; i < results.length; i++){
             chans[results[i].channel] += 1;
