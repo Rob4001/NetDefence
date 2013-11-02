@@ -1,0 +1,16 @@
+Thank you! An instance of this software will be deployed on EC2 soon after your subscription completes.
+
+alistair.collins.2013@uni.strath.ac.uk will receive an email shortly to confirm your subscription.
+Once you are subscribed, an instance of this software will be deployed on EC2.
+The software will be ready in 2-3 minutes.
+Usage Instructions
+SSH to the instance and login as 'root' using the key specified at launch. Additional information may be found at : http://wiki.centos.org/Cloud/AWS.
+
+Software Installation Details
+Product	 CentOS 6.4 (x86_64) - Release Media
+Version	 6.4 - 2013-03-09, released 06/18/2013
+Region	EU West (Ireland)
+EC2 Instance Type	Standard Medium (m1.medium)
+Instance ID	 Visit the AWS Management Console  to see the instance ID
+Security Group	CentOS 6-4 -x86_64- - Release Media-6-4 - 2013-03-09-AutogenByAWSMP-
+Key Pair	geeksoc
