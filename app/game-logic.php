@@ -41,9 +41,9 @@ function calcAPDebuffs()
 	$x = ($numAPNone * $baseRes) * 0.6;
 	$y = ($numAPWep * $baseRes) * 0.4;
 	$z = ($numAPWpa * $baseRes) * 0.2;
-	$r = ($)
+	$r = ($reducedRes);
 		
-	static $APDebufs = $baseRes - ($x - $y - $z);
+	static $APDebufs = $baseRes - ($x - $y - $z - $r);
 }
 
 function calcAvailRes()
@@ -174,7 +174,23 @@ function reduceRes($array)
 	
 	//increment ResourceReductions
 	$reducedRes = $reducedRes + $b;
+	updateUser();
 	//don't know how we want to approach time in php
+}
+
+function updateUser();
+{
+	$con = mysqli_connect(host,username,password,dbname);
+	
+	if (mysqli_connect_errno($con))
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
+	$reducedRes;
+	
+	mysqli_close($con);
+
 }
 ?>
 
