@@ -6,10 +6,8 @@ block content
   p Welcome to #{title}
   div(style="height: 250px;")#chart
   
-  - var str = JSON.stringify(data);
-  
   script.
     Morris.dohnut({
     element: 'chart',
-    data: #{str}
+    data: #{data}
     });
