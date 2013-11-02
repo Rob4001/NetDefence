@@ -30,7 +30,12 @@ grid.updateGrid = function (lat, lon) {
 
 function onDataReceived(data) {
 	console.log(data);
-	for (var i = 0; i < data.length; i++) {
+	for (var x = 0; x < 5; x++) {
+    for (var y = 0; y < 5; y++) {
+       data[x+(y*5)].x = x;
+       data[x+(y*5)].y = y;
+    }
+    }
 		svg.selectAll("rect")
 		.data(data)
 		.enter()
@@ -39,10 +44,10 @@ function onDataReceived(data) {
 		.style("fill", "white")
 		.attr("width", 20)
 		.attr("height", 20)
-		.attr("x", i % 5)
-		.attr("y", (i - (i % 5)) / 5)
+		.attr("x", function (d){(d.x*10)+5})
+		.attr("y", function (d){(d.y*10)+5})
 		.on("click", function (d) {
-			d3.select("#value").text(d[1])
+			d3.select("#value").text(d)
 		})
 		.on("mouseover", function () {
 			d3.select(this).style("fill", "aliceblue");
@@ -50,6 +55,6 @@ function onDataReceived(data) {
 		.on("mouseout", function () {
 			d3.select(this).style("fill", "white");
 		});
-	}
+	
 
 };
