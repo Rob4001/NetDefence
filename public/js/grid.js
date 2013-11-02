@@ -61,7 +61,7 @@ function onDataReceived(data) {
 };
 
 function calcColour(d){
-val colour = d3.rgb(240,248,255);
+var colour = d3.rgb(240,248,255);
 if(d.length == 0){
 return "white";
 }else{
