@@ -58,7 +58,7 @@ function onMapReceived(data) {
 	})
 	.on("click", function (d) {
 		//d3.select("#value").text(JSON.stringify(d))
-        updateList(d);
+		updateList(d);
 		svg.selectAll("rect").style("stroke", "gray");
 		d3.select(this).style("stroke", "red");
 	})
@@ -74,12 +74,15 @@ function onMapReceived(data) {
 };
 
 function updateList(data) {
-	list.selectAll("li").data(data).enter().append("li").each(function (d,i) {
-		d3.select(this).append("p").html(function (d) {return d.ID;})
-        d3.select(this).append("button").attr("onClick", function (d) {
+	list.selectAll("li").data(data).enter().append("li").each(function (d, i) {
+		d3.select(this).append("p").html(function (d) {
+			return d.ID;
+		});
+		d3.select(this).append("button").attr("onClick", function (d) {
 			return "hack(" + JSON.stringify(d) + ")";
 		});
-	}).exit().remove();
+	});
+	list.selectAll("li").data(data).exit().remove();
 };
 
 function calcColour(d) {
@@ -101,5 +104,6 @@ function hack(d) {
 }
 
 function refreshResources() {
+    d3.select('#rec').text("asdsda")
 	//var sessionValue = '<%=Session["username"]%>'
 }
