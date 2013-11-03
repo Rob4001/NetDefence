@@ -10,9 +10,9 @@ html
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a(href="/").navbar-brand 
-          img(src = '/img/favicon.png', width='33%', height = '33%')
-      div.collapse.navbar-collapse#navbar-collapse-1
+        a(href="/", style='height: 95px; width: 300px; margin-left: -30px;').navbar-brand 
+          img(src = '/img/favicon.png')
+      div(style='font-size: 30px; margin-top: 30px; padding-top:10px;').collapse.navbar-collapse#navbar-collapse-1
 
         | <ul class="nav navbar-nav">
         - var obj = { '/home':'Home', '/about':'About'}
@@ -28,7 +28,7 @@ html
           if(!user)
             li
               a(href = '/auth/github') Login
-                img(src = '/img/github.ico' height='16' width='16')     
+                img(src = '/img/github.ico', style='height:32px; width: 32px; margin-left: 20px;')     
           else
             li
               div#res
