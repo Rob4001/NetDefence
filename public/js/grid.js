@@ -74,6 +74,7 @@ function onMapReceived(data) {
 };
 
 function updateList(data) {
+list.selectAll("tr").remove();
 	list.selectAll("tr").data(data).enter().append("tr").each(function (d, i) {
 		d3.select(this).append("td").text(function (d) {
 			return d.id;
@@ -86,7 +87,7 @@ function updateList(data) {
 			return "hack(" + d.id + ")";
 		});
 	});
-	list.selectAll("tr").data(data).exit().remove();
+	
 };
 
 function calcColour(d) {
