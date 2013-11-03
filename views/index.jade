@@ -16,7 +16,7 @@ block scripts
   script.
     var uid = d3.select("#uid").attr("value");
     grid.setup('grid','value','uid')
-    if(parseURLParams(document.URL).length !=0){
+    if(typeof parseURLParams(document.URL) === 'undefined'){
     
     var p = parseURLParams(document.URL);
     
