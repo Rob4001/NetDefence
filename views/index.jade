@@ -13,7 +13,12 @@ block scripts
   script.
     var uid = d3.select("#uid").attr("value");
     grid.setup('grid','value','uid')
-    if (navigator.geolocation)
+    if(parseURLparams(document.URL)!={}){
+    var p = parseURLparams(document.URL);
+    
+    grid.updateGrid(p['lat'],pp['lon']);
+    }
+    else if (navigator.geolocation)
     {
        navigator.geolocation.getCurrentPosition(function(position){
        grid.updateGrid(position.coords.latitude,position.coords.longitude);
