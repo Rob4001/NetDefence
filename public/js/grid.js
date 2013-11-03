@@ -109,13 +109,13 @@ var virus,user,muser = false;
 	if (d.length == 0) {
 		return "white";
 	} else if(muser||(virus&&user)){
-		return d3.rgb(204, 92, 0).darker(d.length/5).toString();
+		return d3.rgb(204, 92, 0).lighter(2-d.length/5).toString();
 	} else if(user){
-        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
     } else if(virus){
-        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
     } else{
-        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
     }
 };
 
