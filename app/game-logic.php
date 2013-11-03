@@ -6,7 +6,7 @@
 error_reporting(E_ALL);
 
 
-function getOwnedAP()
+function getOwnedAP($u)
 {
 	//call database, get APs owned by user, and stored resource vars
 	$con = mysqli_connect(host,username,password,dbname);
@@ -16,10 +16,10 @@ function getOwnedAP()
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	
-	static $numAPNone = ($con,"SELECT COUNT(DISTINCT security) FROM table_name WHERE security = "None" OR null");
-	static $numAPWep = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WEP"");
-	static $numAPWpa = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WPA"");
-	static $numAPWpa2 = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WPA2"");
+	static $numAPNone = ($con,"SELECT COUNT(DISTINCT security) FROM table_name WHERE security = "None" AND owner = $u");
+	static $numAPWep = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WEP" AND owner = $u");
+	static $numAPWpa = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WPA" AND owner = $u");
+	static $numAPWpa2 = ($con,"SELECT COUNT (DISTINCT security) FROM table_name WHERE security = "WPA2" AND owner = $u");
 	static $numAP = ($con,"SELECT "AP Count" FROM User WHERE username = username");
 	static $reducedRes = ($con,"SELECT "ResReductions" FROM User WHERE username = username");
 	
@@ -174,11 +174,11 @@ function reduceRes($array)
 	
 	//increment ResourceReductions
 	$reducedRes = $reducedRes + $b;
-	updateUser();
+	updateUserReduce();
 	//don't know how we want to approach time in php
 }
 
-function updateUser();
+function updateUserReduce();
 {
 	$con = mysqli_connect(host,username,password,dbname);
 	
