@@ -12,17 +12,15 @@ var la = "";
 var lo = "";
 
 var dataurl = "http://api.geeksoc-hackathon.tk/data/";
-var user = d3.select()
-
-refreshResources();
 
 grid.setup = function (s, l,u) {
 	svg = d3.select("#" + s).append("svg")
 		.attr("width", screenSize)
 		.attr("height", screenSize);
 	list = d3.select("#" + l);
+    var user = d3.select("#"+u)
     $.ajax({
-		url : dataurl + "map.php?user=" + user.attr("value"),
+		url : dataurl + "getuser.php?user=" + user.attr("value"),
 		type : "GET",
 		dataType : "json",
 		success : setUser
