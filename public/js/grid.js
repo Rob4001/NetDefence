@@ -76,10 +76,10 @@ function onMapReceived(data) {
 function updateList(data) {
 	list.selectAll("li").data(data).enter().append("li").each(function (d, i) {
 		d3.select(this).append("p").html(function (d) {
-			return d.ID;
+			return d.id;
 		});
 		d3.select(this).append("button").attr("onClick", function (d) {
-			return "hack(" + JSON.stringify(d) + ")";
+			return "hack(" + d.id + ")";
 		});
 	});
 	list.selectAll("li").data(data).exit().remove();
