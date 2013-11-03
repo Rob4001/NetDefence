@@ -137,7 +137,7 @@ var obj = {id:d,user:uid};
 		type : "POST",
 		data : obj
 	});
-	refreshResources(u);
+	refreshResources(uid);
 }
 
 function refreshResources(u) {
