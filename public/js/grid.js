@@ -22,7 +22,7 @@ grid.setup = function (s, l,u) {
 		.attr("height", screenSize);
 	list = d3.select("#" + l);
     $.ajax({
-		url : dataurl + "map.php?user=" + user.attr(),
+		url : dataurl + "map.php?user=" + user.attr("value"),
 		type : "GET",
 		dataType : "json",
 		success : setUser
