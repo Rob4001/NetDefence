@@ -8,13 +8,6 @@ error_reporting(E_ALL);
 include 'game-logic.php';
 
 //start location
-$startLat = 55.858;
-$startLon = -4.259;
-
-$currentLat = 0;
-$currentLon = 0;
-
-$virusUsername = virus;
 
 function setStartLoc()
 {
@@ -46,16 +39,17 @@ function targetNode()
 
 function run($n)
 {
-	//$n will 
-	squareInfectionCheck();
-	if ($currentSqInf < 0.6)
-	{
-		targetNode();
-	}
-	else
-	{
-		squareMovement();
-	}
+	//$n will indicate initial run or not
+	if (n
+		squareInfectionCheck();
+		if ($currentSqInf < 0.6)
+		{
+			targetNode();
+		}
+		else
+		{
+			squareMovement();
+		}
 
 }
 ?>
