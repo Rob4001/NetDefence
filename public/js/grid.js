@@ -152,5 +152,5 @@ function refreshResources(u) {
 }
 
 function changeResources(r){
-d3.select('#rec').text(JSON.stringify(r));
+d3.select('#rec').text(r);
 }
