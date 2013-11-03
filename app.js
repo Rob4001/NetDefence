@@ -24,7 +24,8 @@ app.configure(function() {
         app.use(express.methodOverride());
         app.use(express.cookieParser());
         app.use(express.session({
-                secret : 'your secret here'
+        
+                secret : 'geeksocisbawse'
         }));
         app.use(passport.initialize());
           app.use(passport.session());
@@ -72,10 +73,12 @@ passport.authenticate('github'),
 function(req, res){
 });
 
-app.get('/auth/github/callback', 
+app.get('/auth/github/callback', function(req, res, next) {
 passport.authenticate('github', { failureRedirect: '/login' }),
-function(req, res) {
+function(err, user, info) {
+req.session.username = user.username;
 res.redirect('/');
+});
 });
 
 app.get('/logout', function(req, res){
