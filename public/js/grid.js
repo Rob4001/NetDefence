@@ -11,6 +11,7 @@ var la = "";
 var lo = "";
 
 var dataurl = "http://api.geeksoc-hackathon.tk/data/";
+var user = d3.select()
 
 refreshResources();
 
@@ -90,12 +91,32 @@ list.selectAll("tr").remove();
 };
 
 function calcColour(d) {
+var virus,user,muser = false;
+    for(var node in d){
+       if(d[node].OWNER == 1){
+         virus = true;
+         }
+         if(d[node].OWNER != 1 ||d[node].OWNER != 0){
+         if(user==false){
+         user = true;
+         }else{
+         muser=true;
+         }
+         
+         }
+    }
 
 	if (d.length == 0) {
 		return "white";
-	} else {
-		return d3.rgb(240, 248, 255).darker(d.length).toString();
-	}
+	} else if(muser||(virus&&user)){
+		return d3.rgb(204, 92, 0).darker(d.length/5).toString();
+	} else if(user){
+        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+    } else if(virus){
+        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+    } else{
+        return d3.rgb(0, 58, 204).darker(d.length/5).toString();
+    }
 };
 
 function hack(d) {
