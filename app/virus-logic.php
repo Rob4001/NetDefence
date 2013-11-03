@@ -9,11 +9,6 @@ include 'game-logic.php';
 
 //start location
 
-function setStartLoc()
-{
-	
-}
-
 function updateNodeResources()
 {
 	getOwnedAP($virusUsername);
@@ -37,19 +32,17 @@ function targetNode()
 }
 
 
-function run($n)
+function run($l1,$l2)
 {
-	//$n will indicate initial run or not
-	if (n
-		squareInfectionCheck();
-		if ($currentSqInf < 0.6)
-		{
-			targetNode();
-		}
-		else
-		{
-			squareMovement();
-		}
+	
+	if ($currentSqInf < 0.6)
+	{
+		targetNode();
+	}
+	else
+	{
+		squareMovement();
+	}
 
 }
 ?>
