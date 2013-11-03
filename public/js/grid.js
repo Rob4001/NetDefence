@@ -93,10 +93,10 @@ list.selectAll("tr").remove();
 function calcColour(d) {
 var virus,user,muser = false;
     for(var node in d){
-       if(d[node].OWNER == 1){
+       if(d[node].OWNER == 2){
          virus = true;
          }
-         if(d[node].OWNER != 1 ||d[node].OWNER != 0){
+         if(d[node].OWNER > 2 ){
          if(user==false){
          user = true;
          }else{
@@ -109,13 +109,13 @@ var virus,user,muser = false;
 	if (d.length == 0) {
 		return "white";
 	} else if(muser||(virus&&user)){
-		return d3.rgb(204, 92, 0).lighter(2-d.length/5).toString();
+		return d3.rgb(204, 92, 0).brighter(2-d.length/5).toString();
 	} else if(user){
-        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
+        return d3.rgb(0, 58, 204).brighter(2-d.length/5).toString();
     } else if(virus){
-        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
+        return d3.rgb(0, 58, 204).brighter(2-d.length/5).toString();
     } else{
-        return d3.rgb(0, 58, 204).lighter(2-d.length/5).toString();
+        return d3.rgb(0, 58, 204).brighter(2-d.length/5).toString();
     }
 };
 
