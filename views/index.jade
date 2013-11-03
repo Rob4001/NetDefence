@@ -6,12 +6,12 @@ block content
   p Welcome to #{title}
   div#gridCont
     scg#grid
-    div#value
+  ul#value
     
   
 block scripts
   script.
-    grid.setup('grid')
+    grid.setup('grid','value')
     if (navigator.geolocation)
     {
        navigator.geolocation.getCurrentPosition(function(position){

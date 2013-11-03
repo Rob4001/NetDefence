@@ -57,7 +57,8 @@ function onMapReceived(data) {
 		return (d.y * 20) + 5;
 	})
 	.on("click", function (d) {
-		d3.select("#value").text(JSON.stringify(d))
+		//d3.select("#value").text(JSON.stringify(d))
+        updateList(d);
 		svg.selectAll("rect").style("stroke", "gray");
 		d3.select(this).style("stroke", "red");
 	})
@@ -74,7 +75,7 @@ function onMapReceived(data) {
 
 function updateList(data) {
 	list.selectAll("li").data(data).enter().each(function (d) {
-		d3.select(this).append("button").attr("onClick", function (d) {
+		d3.select(this).append("p").html(function (d) {return d.ID;}).append("button").attr("onClick", function (d) {
 			return "hack(" + d.ID + ")";
 		});
 	});
