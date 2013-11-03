@@ -5,6 +5,7 @@ var screenSize = (5*cubeSize)+20;
 
 var svg = "";
 var list = "";
+var uid = 0;
 var grid = grid || {};
 
 var la = "";
@@ -15,12 +16,24 @@ var user = d3.select()
 
 refreshResources();
 
-grid.setup = function (s, l) {
+grid.setup = function (s, l,u) {
 	svg = d3.select("#" + s).append("svg")
 		.attr("width", screenSize)
 		.attr("height", screenSize);
 	list = d3.select("#" + l);
+    $.ajax({
+		url : dataurl + "map.php?user=" + user.attr(),
+		type : "GET",
+		dataType : "json",
+		success : setUser
+	});
+    
 };
+
+function setUser(data){
+uid = data;
+refreshResources(uid);
+}
 
 grid.updateGrid = function (lat, lon) {
 	$.ajax({
@@ -84,7 +97,7 @@ list.selectAll("tr").remove();
 		});
         var actions = d3.select(this).append("td");
 		actions.append("button").attr("onClick", function (d) {
-			return "hack(" + d.id + ")";
+			return "hack(" + d.id+","+ uid + ")";
 		}).text("Hack");
 	});
 	
@@ -119,20 +132,21 @@ var virus,user,muser = false;
     }
 };
 
-function hack(d,u) {
+function hack(d) {
+var obj = {id:d,user:uid};
 	$.ajax({
 		url : dataurl + "hack.php",
 		type : "POST",
-		data : d
+		data : obj
 	});
 	refreshResources(u);
 }
 
 function refreshResources(u) {
+
     $.ajax({
 		url : dataurl + "resources.php",
-		type : "POST",
-		data : u,
+		type : "GET",
         success: changeResources
 	});
     

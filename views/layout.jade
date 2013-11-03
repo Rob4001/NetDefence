@@ -13,17 +13,6 @@ html
         a(href="/").navbar-brand 
           img(src = '/img/favicon.png', style='height: 95px; width: 300px; margin-left: -30px;')
       div(style='font-size: 30px; margin-top: 30px; padding-top:10px;').collapse.navbar-collapse#navbar-collapse-1
-
-        | <ul class="nav navbar-nav">
-        - var obj = { '/home':'Home', '/about':'About'}
-        each val, key in obj
-          if id == key
-            li.active
-              a(href='#{key}') #{val}                      
-          else            
-            li
-              a(href='#{key}') #{val}
-        | </ul>
         ul.nav.navbar-nav.pull-right
           if(!user)
             li
@@ -31,7 +20,7 @@ html
                 img(src = '/img/github.ico', style='height:32px; width: 32px; margin-left: 20px;')     
           else
             li
-              |Logged in as #{user.id}
+              |Logged in as #{user.username}
             li#res
             li
               a(href = '/logout') Log Out
@@ -41,6 +30,8 @@ html
       div.row
         div.col-md-12
            block content
-    
+    input(type="hidden", value='#{user.id}')#uid
     include inc/scripts
     block scripts
+    
+    
