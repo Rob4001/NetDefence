@@ -74,7 +74,7 @@ function onMapReceived(data) {
 };
 
 function updateList(data) {
-	list.selectAll("li").data(data).enter().each(function (d,i) {
+	list.selectAll("li").data(data).enter().append("li").each(function (d,i) {
 		d3.select(this).append("p").html(function (d) {return d.ID;}).append("button").attr("onClick", function (d) {
 			return "hack(" + d.ID + ")";
 		});
