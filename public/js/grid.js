@@ -1,8 +1,10 @@
-//define screen size
-var screenSize = 120;
 
-//define rect size
-var cubeSize = 20;
+
+
+
+var cubeSize = 50;
+
+var screenSize = (5*cubeSize)+20;
 
 var svg = "";
 var list = "";
@@ -77,7 +79,7 @@ function updateList(data) {
 list.selectAll("tr").remove();
 	list.selectAll("tr").data(data).enter().append("tr").each(function (d, i) {
 		d3.select(this).append("td").text(function (d) {
-			return d.id;
+			return d.BSSID;
 		});
         d3.select(this).append("td").text(function (d) {
 			return d.SECURITY;
@@ -85,7 +87,7 @@ list.selectAll("tr").remove();
         var actions = d3.select(this).append("td");
 		actions.append("button").attr("onClick", function (d) {
 			return "hack(" + d.id + ")";
-		});
+		}).text("Hack");
 	});
 	
 };
