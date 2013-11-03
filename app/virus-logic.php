@@ -31,6 +31,7 @@ function targetNode()
 	//todo list APs in currentLocation
 	//target weakest first
 	
+	
 }
 
 function run($l1,$l2)
