@@ -75,10 +75,11 @@ function onMapReceived(data) {
 
 function updateList(data) {
 	list.selectAll("li").data(data).enter().append("li").each(function (d,i) {
-		d3.select(this).append("p").html(function (d) {return d.ID;}).append("button").attr("onClick", function (d) {
-			return "hack(" + d.ID + ")";
+		d3.select(this).append("p").html(function (d) {return d.ID;})
+        d3.select(this).append("button").attr("onClick", function (d) {
+			return "hack(" + JSON.stringify(d) + ")";
 		});
-	});
+	}).exit().remove();
 };
 
 function calcColour(d) {
@@ -94,8 +95,7 @@ function hack(d) {
 	$.ajax({
 		url : dataurl + "hack.php",
 		type : "POST",
-		data : d,
-		success : onDataReceived
+		data : d
 	});
 	refreshResources();
 }
