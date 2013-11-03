@@ -95,7 +95,7 @@ list.selectAll("tr").remove();
 		});
         var actions = d3.select(this).append("td");
 		actions.append("button").attr("onClick", function (d) {
-			return "hack(" + d.id+","+ uid + ")";
+			return "hack(" + d.id+")";
 		}).text("Hack");
 	});
 	
