@@ -18,19 +18,20 @@ function updateNodeResources()
 function squareInfectionCheck()
 {
 	// get number of APs in square and calc percent/val between 0-1
-	static $currentSqInf;
+	
 }
 
-function squareMovement()
+function squareMovement($l1,$l2)
 {
 	
 }
 
 function targetNode()
 {
+	//todo list APs in currentLocation
+	//target weakest first
 	
 }
-
 
 function run($l1,$l2)
 {
@@ -41,7 +42,23 @@ function run($l1,$l2)
 	}
 	else
 	{
-		squareMovement();
+		x$ = rand(0,1);
+		if ($x=1)
+		{
+			squareMovement();
+		}
+		else
+		{
+			$x = rand(0,10);
+			if (x < 8)
+			{
+				updateNodeResources();
+				if (resources > 90)
+				{
+					targetNode();
+				}
+			}
+		}
 	}
 
 }
