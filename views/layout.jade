@@ -20,7 +20,7 @@ html
                 img(src = '/img/github.ico', style='height:32px; width: 32px; margin-left: 20px;')     
           else
             li
-              input(type="hidden", value='#{user.id}')#uid
+              input(type="hidden", value='#{user.username}')#uid
               |Logged in as #{user.username}
             li#res
             li
