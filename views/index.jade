@@ -12,7 +12,7 @@ block content
 block scripts
   script.
     var uid = d3.select("#uid").attr("value");
-    grid.setup('grid','value',uid)
+    grid.setup('grid','value','uid')
     if (navigator.geolocation)
     {
        navigator.geolocation.getCurrentPosition(function(position){
