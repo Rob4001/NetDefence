@@ -3,7 +3,10 @@ extends layout
 block content
 
   h1= title
-  p Welcome to #{title}
+  if(!user)
+    p please log in!
+  else
+    p Welcome to #{title}
   div#gridCont
     scg#grid
   table#value.table-striped
