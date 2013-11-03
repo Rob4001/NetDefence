@@ -119,16 +119,26 @@ var virus,user,muser = false;
     }
 };
 
-function hack(d) {
+function hack(d,u) {
 	$.ajax({
 		url : dataurl + "hack.php",
 		type : "POST",
 		data : d
 	});
-	refreshResources();
+	refreshResources(u);
 }
 
-function refreshResources() {
-    d3.select('#rec').text("asdsda")
+function refreshResources(u) {
+    $.ajax({
+		url : dataurl + "resources.php",
+		type : "POST",
+		data : u,
+        success: changeResources
+	});
+    
 	//var sessionValue = '<%=Session["username"]%>'
+}
+
+function changeResources(r){
+d3.select('#rec').text(JSON.stringify(r));
 }
