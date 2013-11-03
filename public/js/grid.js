@@ -58,8 +58,8 @@ function onMapReceived(data) {
 	})
 	.on("click", function (d) {
 		d3.select("#value").text(JSON.stringify(d))
-        svg.selectAll("rect").style("stroke", "gray");
-        d3.select(this).style("stroke", "red");
+		svg.selectAll("rect").style("stroke", "gray");
+		d3.select(this).style("stroke", "red");
 	})
 	.on("mouseover", function () {
 		d3.select(this).style("fill", "aliceblue");
@@ -73,9 +73,11 @@ function onMapReceived(data) {
 };
 
 function updateList(data) {
-    list.selectAll("li").data(data).enter().each(function(d){
-    d3.select(this).append("button").attr("onClick",function(d){ return "hack("+d.ID+")")
-    });
+	list.selectAll("li").data(data).enter().each(function (d) {
+		d3.select(this).append("button").attr("onClick", function (d) {
+			return "hack(" + d.ID + ")";
+		});
+	});
 };
 
 function calcColour(d) {
@@ -87,16 +89,16 @@ function calcColour(d) {
 	}
 };
 
-function hack(d){
-   $.ajax({
+function hack(d) {
+	$.ajax({
 		url : dataurl + "hack.php",
 		type : "POST",
-        data : d,
+		data : d,
 		success : onDataReceived
 	});
-    refreshResources();
+	refreshResources();
 }
 
-function refreshResources(){
-//var sessionValue = '<%=Session["username"]%>'
+function refreshResources() {
+	//var sessionValue = '<%=Session["username"]%>'
 }
