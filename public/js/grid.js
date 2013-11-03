@@ -1,7 +1,4 @@
 
-
-
-
 var cubeSize = 50;
 
 var screenSize = (5*cubeSize)+20;
@@ -50,13 +47,13 @@ function onMapReceived(data) {
 	.style("fill", function (d) {
 		return calcColour(d);
 	})
-	.attr("width", 20)
-	.attr("height", 20)
+	.attr("width", cubeSize)
+	.attr("height", cubeSize)
 	.attr("x", function (d) {
-		return (d.x * 20) + 5;
+		return (d.x * cubeSize) + 5;
 	})
 	.attr("y", function (d) {
-		return (d.y * 20) + 5;
+		return (d.y * cubeSize) + 5;
 	})
 	.on("click", function (d) {
 		//d3.select("#value").text(JSON.stringify(d))
