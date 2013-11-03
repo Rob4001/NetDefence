@@ -74,15 +74,19 @@ function onMapReceived(data) {
 };
 
 function updateList(data) {
-	list.selectAll("li").data(data).enter().append("li").each(function (d, i) {
-		d3.select(this).append("p").html(function (d) {
+	list.selectAll("tr").data(data).enter().append("tr").each(function (d, i) {
+		d3.select(this).append("td").text(function (d) {
 			return d.id;
 		});
-		d3.select(this).append("button").attr("onClick", function (d) {
+        d3.select(this).append("td").text(function (d) {
+			return d.SECURITY;
+		});
+        var actions = d3.select(this).append("td");
+		actions.append("button").attr("onClick", function (d) {
 			return "hack(" + d.id + ")";
 		});
 	});
-	list.selectAll("li").data(data).exit().remove();
+	list.selectAll("tr").data(data).exit().remove();
 };
 
 function calcColour(d) {
